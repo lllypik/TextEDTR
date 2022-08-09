@@ -5,7 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextEDTR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="879">
+        Title="MyTxtEditor" Height="400" Width="879">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="OpenExecuted"/>
+        <CommandBinding Command="Save" Executed="SaveExecuted"/>
+        <CommandBinding Command="Close" Executed="CloseExecuted"/>
+        <CommandBinding Command="local:MyCommands.FontBold" Executed="FontBoldExecuted"/>
+        <CommandBinding Command="local:MyCommands.FontItalic" Executed="FontItalicExecuted"/>
+        <CommandBinding Command="local:MyCommands.FontUnderline" Executed="FontUnderlineExecuted"/>
+        <CommandBinding Command="local:MyCommands.FontColorRed" Executed="FontColorRedExecuted"/>
+        <CommandBinding Command="local:MyCommands.FontColorBlack" Executed="FontColorBlackExecuted"/>
+
+    </Window.CommandBindings>
+    
       <Grid Background="#FFC7EAEE">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,10 +26,10 @@
         </Grid.RowDefinitions>
             <Menu DockPanel.Dock="Top" VerticalAlignment="Top" Background="#FFC7EAEE">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Open" Click="MenuItem_Click"/>
-                    <MenuItem Header="_Save" Click="MenuItem_Click_1"/>
+                    <MenuItem Command="Open"/>
+                    <MenuItem Command="Save"/>
                     <Separator/>
-                    <MenuItem Header="_Close" Click="MenuItem_Click_2"/>
+                    <MenuItem Command="Close"/>
                 </MenuItem>
             </Menu>
             <ToolBarTray Grid.Row="1" Background="#FFC7EAEE">
@@ -39,20 +51,20 @@
             </ToolBar>
 
             <ToolBar Margin ="3" Padding="3" Background="#FFC7EAEE">
-                
-                <ToggleButton Click="Button_Click" IsChecked="False">
+
+                <ToggleButton Command="local:MyCommands.FontBold" IsChecked="False">
                     <Image Source="Data/icon-bold.png" />
                 </ToggleButton>
                 
                 <Separator/>
-                
-                <ToggleButton Click="ToggleButton_Click" IsChecked="False">
+
+                <ToggleButton Command="local:MyCommands.FontItalic" IsChecked="False">
                     <Image Source="Data/icon-italic.png" />
                 </ToggleButton>
                 
                 <Separator/>
 
-                <ToggleButton Click="ToggleButton_Click_1" IsChecked="False">
+                <ToggleButton Command="local:MyCommands.FontUnderline" IsChecked="False">
                     <Image Source="/Data/icon-underline.png" />
                 </ToggleButton>
                 
@@ -60,8 +72,8 @@
 
             <ToolBar Margin ="3" Padding="3" Background="#FFC7EAEE">
                 <StackPanel VerticalAlignment="Center">
-                    <RadioButton Content="Черный" IsChecked="True" Checked="RadioButton_Checked"/>
-                    <RadioButton Content="Красный" Checked="RadioButton_Checked_1"/>
+                    <RadioButton Content="Черный" IsChecked="True" Command="local:MyCommands.FontColorBlack"/>
+                    <RadioButton Content="Красный" Command="local:MyCommands.FontColorRed"/>
                 </StackPanel>
             </ToolBar>
                     
