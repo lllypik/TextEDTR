@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextEDTR"
+        xmlns:collection ="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:system ="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MyTxtEditor" Height="400" Width="879">
     <Window.CommandBindings>
@@ -15,9 +17,7 @@
         <CommandBinding Command="local:MyCommands.FontUnderline" Executed="FontUnderlineExecuted"/>
         <CommandBinding Command="local:MyCommands.FontColorRed" Executed="FontColorRedExecuted"/>
         <CommandBinding Command="local:MyCommands.FontColorBlack" Executed="FontColorBlackExecuted"/>
-
     </Window.CommandBindings>
-    
       <Grid Background="#FFC7EAEE">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -35,18 +35,18 @@
             <ToolBarTray Grid.Row="1" Background="#FFC7EAEE">
 
             <ToolBar Margin="5" Padding="3" VerticalAlignment="Center" Background="#FFC7EAEE">
-              <ComboBox Name="fontList" Width="150" Margin="5" Padding="5" VerticalAlignment="Top" IsEditable="True" SelectedIndex="0" SelectionChanged="fontList_SelectionChanged">
-                    <TextBlock Text="Arial"  />
-                    <TextBlock Text="Times New Roman" />
-                    <TextBlock Text="Verdana" />
+              <ComboBox
+                  Name="fontList"
+                  Width="150" Margin="5" Padding="5" VerticalAlignment="Top"
+                  IsEditable="True" SelectedIndex="0" SelectionChanged="fontList_SelectionChanged"
+                  ItemsSource="{StaticResource fontType}">
               </ComboBox>
-              <ComboBox Name="fontSize" Width="75" Margin="5" Padding="5" VerticalAlignment="Top" IsEditable="True" SelectedIndex="2" SelectionChanged="fontSize_SelectionChanged">
-                    <TextBlock Text="12"  />
-                    <TextBlock Text="16" />
-                    <TextBlock Text="20" />
-                    <TextBlock Text="24" />
-                    <TextBlock Text="30" />
-                    <TextBlock Text="40" />
+              <ComboBox
+                  Name="fontSize"
+                  Width="75" Margin="5" Padding="5" VerticalAlignment="Top"
+                  IsEditable="True"
+                  SelectedIndex="2" SelectionChanged="fontSize_SelectionChanged"
+                  ItemsSource="{StaticResource fontSize}">
                </ComboBox>
             </ToolBar>
 

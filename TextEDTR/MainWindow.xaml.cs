@@ -32,7 +32,7 @@ namespace TextEDTR
         {
             if (textBox != null)
             {
-                string fontName = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+                string fontName = ((sender as ComboBox).SelectedItem as string);
                 textBox.FontFamily = new FontFamily(fontName);
             }
         }
@@ -42,7 +42,8 @@ namespace TextEDTR
         {
             if (textBox != null)
             {
-                double fontSize = Convert.ToDouble(((sender as ComboBox).SelectedItem as TextBlock).Text);
+                double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem);
+
                 textBox.FontSize = fontSize;
             }
         }
