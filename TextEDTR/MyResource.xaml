@@ -16,4 +16,8 @@
         <system:Double>28</system:Double>
         <system:Double>32</system:Double>
     </collection:ArrayList>
+    <collection:ArrayList x:Key="theme">
+        <system:String>Светлая тема</system:String>
+        <system:String>Темная тема</system:String>
+    </collection:ArrayList>
 </ResourceDictionary>

@@ -36,7 +36,7 @@ namespace TextEDTR
                 textBox.FontFamily = new FontFamily(fontName);
             }
         }
-       
+
         //Обработка размера шрифта
         private void fontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -88,6 +88,24 @@ namespace TextEDTR
             {
                 textBox.Foreground = Brushes.Red;
             }
+        }
+
+        //Тема светлая 
+        private void WhiteThemeExecuted(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Uri theme = new Uri("White.Xaml", UriKind.Relative);
+            ResourceDictionary themeDictionary = Application.LoadComponent(theme) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Add(themeDictionary);
+        }
+
+        //Тема темная 
+        private void DarkThemeExecuted(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Uri theme = new Uri("Dark.Xaml", UriKind.Relative);
+            ResourceDictionary themeDictionary = Application.LoadComponent(theme) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Add(themeDictionary);
         }
 
         // Открытие файла 

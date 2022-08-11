@@ -17,14 +17,16 @@
         <CommandBinding Command="local:MyCommands.FontUnderline" Executed="FontUnderlineExecuted"/>
         <CommandBinding Command="local:MyCommands.FontColorRed" Executed="FontColorRedExecuted"/>
         <CommandBinding Command="local:MyCommands.FontColorBlack" Executed="FontColorBlackExecuted"/>
+        <CommandBinding Command="local:MyCommands.DarkTheme" Executed="DarkThemeExecuted"/>
+        <CommandBinding Command="local:MyCommands.WhiteTheme" Executed="WhiteThemeExecuted"/>
     </Window.CommandBindings>
-      <Grid Background="#FFC7EAEE">
+      <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-            <Menu DockPanel.Dock="Top" VerticalAlignment="Top" Background="#FFC7EAEE">
+            <Menu DockPanel.Dock="Top" VerticalAlignment="Top">
                 <MenuItem Header="_File">
                     <MenuItem Command="Open"/>
                     <MenuItem Command="Save"/>
@@ -32,15 +34,16 @@
                     <MenuItem Command="Close"/>
                 </MenuItem>
             </Menu>
-            <ToolBarTray Grid.Row="1" Background="#FFC7EAEE">
+            <ToolBarTray Grid.Row="1" HorizontalAlignment="Left" Width="871">
 
-            <ToolBar Margin="5" Padding="3" VerticalAlignment="Center" Background="#FFC7EAEE">
+            <ToolBar Margin="5" Padding="3" VerticalAlignment="Center">
               <ComboBox
                   Name="fontList"
                   Width="150" Margin="5" Padding="5" VerticalAlignment="Top"
                   IsEditable="True" SelectedIndex="0" SelectionChanged="fontList_SelectionChanged"
                   ItemsSource="{StaticResource fontType}">
               </ComboBox>
+                
               <ComboBox
                   Name="fontSize"
                   Width="75" Margin="5" Padding="5" VerticalAlignment="Top"
@@ -48,9 +51,10 @@
                   SelectedIndex="2" SelectionChanged="fontSize_SelectionChanged"
                   ItemsSource="{StaticResource fontSize}">
                </ComboBox>
+                
             </ToolBar>
 
-            <ToolBar Margin ="3" Padding="3" Background="#FFC7EAEE">
+            <ToolBar  Padding="3">
 
                 <ToggleButton Command="local:MyCommands.FontBold" IsChecked="False">
                     <Image Source="Data/icon-bold.png" />
@@ -70,14 +74,22 @@
                 
             </ToolBar>
 
-            <ToolBar Margin ="3" Padding="3" Background="#FFC7EAEE">
-                <StackPanel VerticalAlignment="Center">
+            <ToolBar Padding="3">
+                <StackPanel VerticalAlignment="Center" >
                     <RadioButton Content="Черный" IsChecked="True" Command="local:MyCommands.FontColorBlack"/>
                     <RadioButton Content="Красный" Command="local:MyCommands.FontColorRed"/>
                 </StackPanel>
             </ToolBar>
-                    
+
+            <ToolBar Padding="3" Margin="10" HorizontalAlignment="Right">
+                <StackPanel  VerticalAlignment="Center" >
+                    <RadioButton Content="Светлое оформление" IsChecked="True" Command="local:MyCommands.WhiteTheme"/>
+                    <RadioButton Content="Темное оформление"  Command="local:MyCommands.DarkTheme"/>
+                </StackPanel>
+            </ToolBar>
+                
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" Background="#F8DFF0B3" />
+          
+        <TextBox x:Name="textBox" Grid.Row="2" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap"/>
       </Grid>
 </Window>

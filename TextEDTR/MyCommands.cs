@@ -20,10 +20,13 @@ namespace TextEDTR
 
         public static RoutedCommand FontType { get; set; }
 
-        //public static RoutedCommand FontColorBlack { get; set; }
         public static RoutedUICommand FontColorBlack { get; set; }
 
         public static RoutedCommand FontColorRed { get; set; }
+
+        public static RoutedCommand DarkTheme { get; set; }
+
+        public static RoutedCommand WhiteTheme { get; set; }
 
         static MyCommands()
         {
@@ -39,10 +42,14 @@ namespace TextEDTR
             inputUnderline.Add(new KeyGesture(Key.U, ModifierKeys.Control, "CTRL+U"));
             FontUnderline = new RoutedCommand("FontItalic", typeof(MyCommands), inputUnderline);
 
-            //FontColorBlack = new RoutedCommand("FontColorBlack", typeof(MyCommands));
+
             FontColorBlack = new RoutedUICommand("Black","FontColorBlack", typeof(MyCommands));
 
             FontColorRed = new RoutedCommand("FontColorRed", typeof(MyCommands));
+
+            WhiteTheme = new RoutedCommand("WhiteTheme", typeof(MyCommands));
+
+            DarkTheme = new RoutedCommand("DarkTheme", typeof(MyCommands));
 
         }
     }
