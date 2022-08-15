@@ -26,27 +26,6 @@ namespace TextEDTR
         {
             InitializeComponent();
         }
-      
-        //Обратботка типа шрифта 
-        private void fontList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (textBox != null)
-            {
-                string fontName = ((sender as ComboBox).SelectedItem as string);
-                textBox.FontFamily = new FontFamily(fontName);
-            }
-        }
-
-        //Обработка размера шрифта
-        private void fontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (textBox != null)
-            {
-                double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem);
-
-                textBox.FontSize = fontSize;
-            }
-        }
 
         //Обработка толщины шрифта
         private void FontBoldExecuted(object sender, ExecutedRoutedEventArgs e)
